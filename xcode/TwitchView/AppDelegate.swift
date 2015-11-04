@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TVApplicationControllerDe
     
     var appController: TVApplicationController?
     
-    static let TVBaseURL = "https://jesse.ws/tvos/bobross/"
+    static let TVBaseURL = "http://okofish.github.io/TwitchView/client/"
     
     static let TVBootURL = "\(AppDelegate.TVBaseURL)js/application.js"
 
