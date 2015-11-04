@@ -1,9 +1,5 @@
 /*
-    Copyright (C) 2015 Apple Inc. All Rights Reserved.
-    See LICENSE.txt for this sample’s licensing information
-    
-    Abstract:
-    The application delegate.
+From Apple's TVMLAudioVideo example app.
 */
 
 import UIKit
@@ -17,31 +13,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TVApplicationControllerDe
     
     var appController: TVApplicationController?
     
+    
     static let TVBaseURL = "http://okofish.github.io/TwitchView/client/"
     //static let TVBaseURL = "https://jesse.ws/tvos/bobross/"
     
     static let TVBootURL = "\(AppDelegate.TVBaseURL)js/application.js"
-
-    // MARK: UIApplication Overrides
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         /*
-            Create the TVApplicationControllerContext for this application
-            and set the properties that will be passed to the `App.onLaunch` function
-            in JavaScript.
+        Create the TVApplicationControllerContext for this application
+        and set the properties that will be passed to the `App.onLaunch` function
+        in JavaScript.
         */
         let appControllerContext = TVApplicationControllerContext()
         
         /*
-            The JavaScript URL is used to create the JavaScript context for your
-            TVMLKit application. Although it is possible to separate your JavaScript
-            into separate files, to help reduce the launch time of your application
-            we recommend creating minified and compressed version of this resource.
-            This will allow for the resource to be retrieved and UI presented to
-            the user quickly.
+        The JavaScript URL is used to create the JavaScript context for your
+        TVMLKit application. Although it is possible to separate your JavaScript
+        into separate files, to help reduce the launch time of your application
+        we recommend creating minified and compressed version of this resource.
+        This will allow for the resource to be retrieved and UI presented to
+        the user quickly.
         */
         if let javaScriptURL = NSURL(string: AppDelegate.TVBootURL) {
             appControllerContext.javaScriptApplicationURL = javaScriptURL
@@ -54,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TVApplicationControllerDe
                 appControllerContext.launchOptions[kind] = value
             }
         }
-
+        
         appController = TVApplicationController(context: appControllerContext, window: window, delegate: self)
         
         return true
